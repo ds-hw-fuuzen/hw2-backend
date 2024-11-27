@@ -23,7 +23,7 @@ RUN apt-get update && \
     apt-get clean && \
     sed -i 's|/bin/bash|/usr/bin/fish|g' /etc/passwd
 
-EXPOSE 8000
+EXPOSE 5000
 
 COPY start.sh .
 

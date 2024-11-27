@@ -10,7 +10,7 @@ modules/permission/migrations
 *.gv
 *.sql
 *.env
-*.sh
+/*.sh
 *.pyi
 *.log
 /data/*

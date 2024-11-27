@@ -1,6 +1,6 @@
 {
-    "name": "hw1",
-    "dockerComposeFile": "../docker-compose.yml",
+    "name": "hw2",
+    "dockerComposeFile": "docker-compose.yml",
     "service": "app",
     "customizations": {
         "vscode": {
