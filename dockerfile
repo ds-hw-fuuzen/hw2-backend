@@ -1,0 +1,30 @@
+FROM python:3.6.12 AS builder
+
+COPY requirements-dev.txt .
+
+COPY Aptfile /tmp/Aptfile
+
+RUN apt-get update && \
+    xargs apt-get install -y < /tmp/Aptfile && \
+    rm -rf /var/lib/apt/lists/* /tmp/Aptfile && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    pip install --no-cache-dir -r requirements-dev.txt
+
+FROM python:3.6.12-slim
+
+COPY --from=builder /usr/local/lib/python3.6/site-packages /usr/local/lib/python3.6/site-packages
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y fish git && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && \
+    sed -i 's|/bin/bash|/usr/bin/fish|g' /etc/passwd
+
+EXPOSE 8000
+
+COPY start.sh .
+
+ENTRYPOINT ["/bin/bash", "/app/start.sh"]
