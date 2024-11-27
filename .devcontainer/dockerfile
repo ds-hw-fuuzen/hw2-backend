@@ -1,6 +1,6 @@
 FROM python:3.6.12 AS builder
 
-COPY requirements-dev.txt .
+COPY requirements_dev.txt .
 
 COPY Aptfile /tmp/Aptfile
 
