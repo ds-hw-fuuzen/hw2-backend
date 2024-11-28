@@ -25,4 +25,5 @@ config/local_settings.py
 dev
 .env
 test.env
+__pycache__
 # local_settings.py  # I don't ignore this

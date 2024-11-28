@@ -14,5 +14,7 @@
     "mounts": [
         "source=${localWorkspaceFolder},target=/app/dev,type=bind"
     ],
+    "postCreateCommand": "python manage.py migrate",
+    "postStartCommand": "python manage.py runserver",
     "remoteUser": "root"
 }

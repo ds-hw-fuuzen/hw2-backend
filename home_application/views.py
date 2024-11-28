@@ -69,14 +69,29 @@ def get_sets_list(request):
     """
     根据业务ID，查询业务下的集群列表
     """
-    pass  # 请实现你的接口
+    client = get_client_by_request(request)
+    kwargs = { # 请求参数
+        "bk_biz_id": request.GET.get('bk_biz_id'), # 从request.GET 中获取传递的查询参数
+        "fields": ["bk_set_id", "bk_set_name", "bk_biz_id",
+        "bk_created_at", "bk_supplier_account"],
+    }
+    result = client.cc.search_set(kwargs)
+    return JsonResponse(result)
 
 
 def get_modules_list(request):
     """
     根据业务ID和集群ID，查询对应下辖的模块列表
     """
-    pass  # 请实现你的接口
+    client = get_client_by_request(request)
+    kwargs = { # 构造请求参数
+        "bk_biz_id": request.GET.get('bk_biz_id'),
+        "bk_set_id": request.GET.get("bk_set_id"),
+        "fields": ["bk_module_id", "bk_module_name", "bk_set_id",
+        "bk_biz_id", "bk_created_at", "bk_supplier_account"],
+    }
+    result = client.cc.search_module(kwargs)
+    return JsonResponse(result)
 
 
 def get_hosts_list(request):
