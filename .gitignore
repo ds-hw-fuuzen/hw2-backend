@@ -25,4 +25,4 @@ config/local_settings.py
 dev
 .env
 test.env
-local_settings.py
+# local_settings.py  # I don't ignore this

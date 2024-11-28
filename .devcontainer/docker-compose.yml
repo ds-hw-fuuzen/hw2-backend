@@ -17,6 +17,7 @@ services:
       - DEV_DB_USER=root
       - DEV_DB_PASSWORD=root
       - DEV_DB_NAME=hw1
+      - CORS_ALLOWED_ORIGIN=http://127.0.0.1
     depends_on:
       - db
     volumes:
