@@ -6,8 +6,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - BKPAAS_APP_ID=hw2
-      - BKPAAS_APP_SECRET=114514
+      - BKPAAS_APP_ID=${YOUR_APP_ID}
+      - BKPAAS_APP_SECRET=${YOUR_APP_SECRET}
       - BKPAAS_MAJOR_VERSION=3
       - BK_PAAS2_URL=https://ce.bktencent.com
       - BK_COMPONENT_API_URL=https://bkapi.ce.bktencent.com
@@ -16,7 +16,8 @@ services:
       - DEV_DB_PORT=3306
       - DEV_DB_USER=root
       - DEV_DB_PASSWORD=root
-      - DEV_DB_NAME=hw1
+      - DEV_DB_NAME=${YOUR_APP_ID}
+      - CORS_ALLOWED_ORIGINS=https://dev.ce.bktencent.com
     depends_on:
       - db
     volumes:
@@ -26,7 +27,7 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: hw1
+      MYSQL_DATABASE: ${YOUR_APP_ID}
       # MYSQL_USER: 
       # MYSQL_PASSWORD: 
     # volumes:
