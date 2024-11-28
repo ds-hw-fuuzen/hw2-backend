@@ -10,9 +10,9 @@
             ]
         }
     },
-    "workspaceFolder": "/app",
+    "workspaceFolder": "/app/dev",
     "mounts": [
-        "source=${localWorkspaceFolder},target=/app,type=bind"
+        "source=${localWorkspaceFolder},target=/app/dev,type=bind"
     ],
     "remoteUser": "root"
 }

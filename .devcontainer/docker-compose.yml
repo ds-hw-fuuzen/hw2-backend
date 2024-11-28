@@ -3,12 +3,11 @@ version: '3.8'
 services:
   app:
     image: "ghcr.io/ds-hw-fuuzen/hw2-backend:master"
-    # image: "ghcr.io/ds-hw-fuuzen/ds-hw-1-test:0.0.5"
     ports:
       - "5000:5000"
     environment:
       - BKPAAS_APP_ID=hw2
-      - BKPAAS_APP_SECRET=
+      - BKPAAS_APP_SECRET=114514
       - BKPAAS_MAJOR_VERSION=3
       - BK_PAAS2_URL=https://ce.bktencent.com
       - BK_COMPONENT_API_URL=https://bkapi.ce.bktencent.com
