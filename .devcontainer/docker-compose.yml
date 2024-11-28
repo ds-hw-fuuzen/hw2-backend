@@ -6,8 +6,8 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - BKPAAS_APP_ID=hw2
-      - BKPAAS_APP_SECRET=114514
+      - BKPAAS_APP_ID=hw2-be-fuuzen
+      - BKPAAS_APP_SECRET=ALrpoOTP5pbSe1QQoV1XrCX3UfAkVory9yZi
       - BKPAAS_MAJOR_VERSION=3
       - BK_PAAS2_URL=https://ce.bktencent.com
       - BK_COMPONENT_API_URL=https://bkapi.ce.bktencent.com
@@ -16,18 +16,19 @@ services:
       - DEV_DB_PORT=3306
       - DEV_DB_USER=root
       - DEV_DB_PASSWORD=root
-      - DEV_DB_NAME=hw1
-      - CORS_ALLOWED_ORIGIN=http://127.0.0.1
+      - DEV_DB_NAME=hw2-be-fuuzen
+      - CORS_ALLOWED_ORIGIN=http://dev.ce.bktencent.com
     depends_on:
       - db
     volumes:
-      - ${HOME}/.ssh:/root/.ssh
+      - /c/Users/YQ/.ssh:/root/.ssh  # for my windows
+      # - ${HOME}/.ssh:/root/.ssh
 
   db:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: hw1
+      MYSQL_DATABASE: hw2-be-fuuzen
       # MYSQL_USER: 
       # MYSQL_PASSWORD: 
     # volumes:
