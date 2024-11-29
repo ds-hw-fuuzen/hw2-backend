@@ -4,9 +4,7 @@
 
 [使用 VSCode + docker 开发](https://github.com/ds-hw-fuuzen/.github/blob/main/profile/README.md)
 
-[使用 VSCode + docker 开发](https://github.com/ds-hw-fuuzen/.github/blob/main/profile/README.md)
-
-为了实现前后端对接，请在 VSCode 创建开发容器之前先创建这样一个 docker bridge：
+为了实现前后端对接，请在 VSCode 创建开发容器之前确保先创建好这样一个 docker bridge：
 
 ```shell shell
 docker network create hw2_bridge
