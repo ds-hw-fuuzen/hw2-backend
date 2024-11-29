@@ -10,6 +10,8 @@
 docker network create hw2_bridge
 ```
 
+您可以通过 `docker network ls` 检查 `hw2_bridge` 是否存在。
+
 这个网桥 `hw2_bridge` 名称已经硬编码在 `.devcontainer/docker-compose.yml` 中。
 
 当需要对接的时候，请打开两个 VSCode 窗口，分别在开发容器中打开项目目录，分别运行程序即可。
