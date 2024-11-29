@@ -1,10 +1,8 @@
 version: '3.8'
 
 services:
-  app:
+  hw2-backend:
     image: "ghcr.io/ds-hw-fuuzen/hw2-backend:master"
-    ports:
-      - "5000:5000"
     environment:
       - BKPAAS_APP_ID=hw2-be-fuuzen
       - BKPAAS_APP_SECRET=ALrpoOTP5pbSe1QQoV1XrCX3UfAkVory9yZi
@@ -17,12 +15,14 @@ services:
       - DEV_DB_USER=root
       - DEV_DB_PASSWORD=root
       - DEV_DB_NAME=hw2-be-fuuzen
-      - CORS_ALLOWED_ORIGIN=http://dev.ce.bktencent.com
+      - CORS_ALLOWED_ORIGIN=http://dev.ce.bktencent.com:5000
     depends_on:
       - db
     volumes:
       - /c/Users/YQ/.ssh:/root/.ssh  # for my windows
       # - ${HOME}/.ssh:/root/.ssh
+    networks:
+      hw2_bridge:
 
   db:
     image: mysql:latest
@@ -35,6 +35,11 @@ services:
     #   - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
+    networks:
+      hw2_bridge:
 
 # volumes:
 #   db_data: {}
+
+networks:
+  hw2_bridge:

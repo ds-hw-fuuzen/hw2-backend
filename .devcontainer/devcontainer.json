@@ -1,7 +1,7 @@
 {
-    "name": "hw2",
+    "name": "hw2-backend",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
+    "service": "hw2-backend",
     "customizations": {
         "vscode": {
             "extensions": [
