@@ -1,7 +1,11 @@
 version: '3.8'
 
+networks:
+  hw2_bridge:
+    external: true
+
 services:
-  hw2-backend:
+  backend:
     image: "ghcr.io/ds-hw-fuuzen/hw2-backend:master"
     environment:
       - BKPAAS_APP_ID=hw2-be-fuuzen
@@ -19,10 +23,10 @@ services:
     depends_on:
       - db
     volumes:
-      - /c/Users/YQ/.ssh:/root/.ssh  # for my windows
-      # - ${HOME}/.ssh:/root/.ssh
+      # - /c/Users/YQ/.ssh:/root/.ssh  # for my windows
+      - ${HOME}/.ssh:/root/.ssh
     networks:
-      hw2_bridge:
+      - hw2_bridge
 
   db:
     image: mysql:latest
@@ -36,10 +40,7 @@ services:
     ports:
       - "3306:3306"
     networks:
-      hw2_bridge:
+      - hw2_bridge
 
 # volumes:
 #   db_data: {}
-
-networks:
-  hw2_bridge:
