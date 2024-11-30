@@ -1,9 +1,5 @@
 version: '3.8'
 
-networks:
-  hw2_bridge:
-    external: true
-
 services:
   backend:
     image: "ghcr.io/ds-hw-fuuzen/hw2-backend:master"
@@ -25,8 +21,6 @@ services:
     volumes:
       # - /c/Users/YQ/.ssh:/root/.ssh  # for my windows
       - ${HOME}/.ssh:/root/.ssh
-    networks:
-      - hw2_bridge
 
   db:
     image: mysql:latest
@@ -39,8 +33,6 @@ services:
     #   - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
-    networks:
-      - hw2_bridge
 
 # volumes:
 #   db_data: {}
